@@ -1,98 +1,175 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Frenzzy's World</title>
-<style>
-    <a href="https://discord.gg/Ty97MmU8" target="_blank" class="discord-link">
-    Join my Discord Server
-</a>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Frenzzy's World — Home</title>
+  <meta name="description" content="Frenzzy's World — gaming page. Join the Discord: frenzzy12__10019 | Server: discord.gg/Ty97MmU8" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#0f1724; /* deep navy */
+      --glass: rgba(255,255,255,0.06);
+      --accent: #5865F2; /* discord blue */
+      --accent-2: #9b7aff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg1);color:#e6eef8}
 
-<style>
-.discord-link {
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    color: white;
-    background: #5865F2; /* Discord blue */
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    transition: background 0.2s, transform 0.2s;
-}
-.discord-link:hover {
-    background: #4752C4;
-    transform: scale(1.05);
-}
-</style>
+    /* animated gradient background */
+    .bg-wrap{
+      position:fixed;inset:0;z-index:-2;overflow:hidden;
+      background: linear-gradient(120deg,var(--bg1), #071021 30%);
+    }
+    .gradient {
+      position:absolute;filter:blur(80px);opacity:0.9;mix-blend-mode:screen;
+      width:60vmax;height:60vmax;border-radius:50%;transform:translate(-20%, -10%);
+      animation: floaty 12s ease-in-out infinite;
+    }
+    .g1{background: radial-gradient(circle at 30% 30%, rgba(88,101,242,0.9), transparent 30%);
+        left:-10%;top:-15%;}
+    .g2{background: radial-gradient(circle at 60% 70%, rgba(155,122,255,0.85), transparent 30%);
+        right:-15%;bottom:-10%;animation-duration:18s}
 
-    body {
-        font-family: 'Segoe UI', sans-serif;
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(135deg, #1a1a1a, #3a0ca3);
-        color: white;
-        text-align: center;
-        overflow-x: hidden;
+    @keyframes floaty{
+      0%{transform: translate(-20%,-10%) scale(1)}
+      50%{transform: translate(-10%,-5%) scale(1.08)}
+      100%{transform: translate(-20%,-10%) scale(1)}
     }
-    header {
-        padding: 40px;
-        font-size: 3em;
-        font-weight: bold;
-        animation: glow 2s infinite alternate;
+
+    /* subtle star dots */
+    .stars{
+      position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 8px 8px;opacity:0.08;
     }
-    @keyframes glow {
-        from { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff; }
-        to { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; }
+
+    /* main layout */
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:3rem}
+    .card{
+      width:min(920px,96%);background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:18px;backdrop-filter: blur(6px);box-shadow: 0 6px 30px rgba(2,6,23,0.6);padding:2.2rem;display:grid;grid-template-columns:1fr 340px;gap:1.6rem;align-items:center;border:1px solid rgba(255,255,255,0.04)
     }
-    .card {
-        background: rgba(255, 255, 255, 0.1);
-        margin: 20px auto;
-        padding: 20px;
-        border-radius: 15px;
-        max-width: 400px;
-        backdrop-filter: blur(5px);
-        box-shadow: 0 0 20px rgba(0,0,0,0.5);
-        transition: transform 0.3s;
-    }
-    .card:hover {
-        transform: scale(1.05);
-    }
-    h2 {
-        margin-bottom: 10px;
-        color: #ffcc00;
-    }
-    p {
-        font-size: 1.2em;
-    }
-    footer {
-        margin-top: 40px;
-        font-size: 0.9em;
-        opacity: 0.8;
-    }
-</style>
+
+    .left h1{margin:0;font-size:2.1rem;letter-spacing:-0.5px}
+    .left p.lead{margin-top:0.6rem;color:#cfe0ffb8}
+
+    .info-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:1rem}
+    .pill{padding:8px 12px;border-radius:999px;background:var(--glass);font-weight:600;color:#dbe9ff;font-size:0.95rem;border:1px solid rgba(255,255,255,0.03)}
+
+    /* Discord box */
+    .discord-box{background:linear-gradient(180deg, rgba(88,101,242,0.12), rgba(155,122,255,0.06));padding:14px;border-radius:12px;border:1px solid rgba(88,101,242,0.18);display:flex;flex-direction:column;gap:8px}
+    .discord-username{font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:10px}
+    .discord-username .tag{opacity:0.95}
+    .discord-action{display:flex;gap:10px;margin-top:6px}
+    .btn{padding:10px 14px;border-radius:10px;text-decoration:none;color:white;font-weight:700;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+    .btn-join{background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 6px 18px rgba(88,101,242,0.18);}
+    .btn-profile{background:transparent;border:1px solid rgba(255,255,255,0.06);}
+
+    /* avatar / banner */
+    .right{display:flex;flex-direction:column;align-items:center;gap:12px}
+    .avatar{width:160px;height:160px;border-radius:16px;background:linear-gradient(135deg,#15202b,#0b1220);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:3rem;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.04)}
+    .small-note{font-size:0.92rem;color:#cfe0ffb8;text-align:center}
+
+    /* footer */
+    .footer{margin-top:1rem;font-size:0.9rem;color:#bcd4ff8a}
+
+    /* responsive */
+    @media (max-width:880px){.card{grid-template-columns:1fr;}}
+
+    /* small motion for hover */
+    .card:hover{transform:translateY(-2px);transition:transform 0.18s}
+
+    /* floating decorative blobs */
+    .blob{position:absolute;border-radius:40% 60% 30% 70% / 60% 40% 60% 40%;filter:blur(24px);opacity:0.7;mix-blend-mode:screen}
+    .blob.b1{width:260px;height:260px;left:6%;bottom:10%;background:linear-gradient(135deg,#6ee7b7,#60a5fa);animation:bloby 9s infinite}
+    .blob.b2{width:200px;height:200px;right:6%;top:8%;background:linear-gradient(135deg,#fbcfe8,#a78bfa);animation:bloby 11s infinite}
+    @keyframes bloby{0%{transform:scale(1)}50%{transform:scale(1.12) rotate(6deg)}100%{transform:scale(1)}}
+
+  </style>
 </head>
 <body>
-    <header>🚀 Frenzzy's World 🚀</header>
+  <!-- Background layers -->
+  <div class="bg-wrap">
+    <div class="gradient g1" aria-hidden="true"></div>
+    <div class="gradient g2" aria-hidden="true"></div>
+  </div>
+  <div class="stars" aria-hidden="true"></div>
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
 
-    <div class="card">
-        <h2>About Me</h2>
-        <p><strong>Name:</strong> Frenzzy</p>
-        <p><strong>Age:</strong> 16</p>
-        <p><strong>Class:</strong> 9</p>
-        <p><strong>Passion:</strong> Gaming 🎮</p>
-    </div>
+  <main class="wrap">
+    <section class="card" role="region" aria-labelledby="title">
+      <div class="left">
+        <h1 id="title">Frenzzy's World</h1>
+        <p class="lead">Hey — I&apos;m <strong>Frenzzy</strong>. Welcome to my gaming corner. I make Minecraft Pocket Edition content and hang out with my friend Emily. I&apos;m 16 (Class 9) and I love gaming.</p>
 
-    <div class="card">
-        <h2>Best Friend</h2>
-        <p>My amazing friend is <strong>Emily</strong> 💖</p>
-    </div>
+        <div class="info-list">
+          <div class="pill">Age: 16</div>
+          <div class="pill">Class: 9</div>
+          <div class="pill">Passion: Gaming (MCPE)</div>
+          <div class="pill">Friend: Emily</div>
+        </div>
 
-    <footer>
-        &copy; 2025 Frenzzy — Made with ❤️ and Gaming Energy
-    </footer>
+        <div class="footer">
+          Tip: Click the Discord button to join the server and add me: <strong>frenzzy12__10019</strong>
+        </div>
+      </div>
+
+      <aside class="right" aria-label="Profile & Discord">
+        <div class="avatar" aria-hidden="true">Fz</div>
+
+        <div class="discord-box" role="group" aria-label="Discord">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-size:0.85rem;color:#dbe9ff;">Discord</div>
+              <div class="discord-username"><span class="tag">frenzzy12__10019</span></div>
+            </div>
+            <div style="font-size:0.75rem;color:#cfe0ff80">Online?</div>
+          </div>
+
+          <div class="discord-action">
+            <a class="btn btn-join" href="https://discord.gg/Ty97MmU8" target="_blank" rel="noopener noreferrer" aria-label="Join Frenzzy's Discord Server">Join Server</a>
+            <button class="btn btn-profile" onclick="copyTag()" aria-label="Copy Discord username to clipboard">Copy Tag</button>
+          </div>
+
+          <div style="font-size:0.85rem;color:#cfe0ffb8">Server invite: <code style="background:transparent;padding:0;color:#fff;border-radius:6px">discord.gg/Ty97MmU8</code></div>
+        </div>
+
+        <div class="small-note">Made for GitHub Pages — single file. Click join to open the invite in a new tab.</div>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    // small helper to copy username to clipboard
+    function copyTag(){
+      const t = 'frenzzy12__10019';
+      if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(t).then(()=>{
+          showToast('Copied: '+t);
+        });
+      } else {
+        const el = document.createElement('textarea');el.value=t;document.body.appendChild(el);el.select();try{document.execCommand('copy');showToast('Copied: '+t)}catch(e){alert('Copy failed - '+t)}el.remove();
+      }
+    }
+
+    // tiny toast
+    function showToast(msg){
+      const x = document.createElement('div');
+      x.textContent = msg;document.body.appendChild(x);
+      Object.assign(x.style,{position:'fixed',left:'50%',bottom:'30px',transform:'translateX(-50%)',background:'rgba(0,0,0,0.6)',color:'#fff',padding:'10px 16px',borderRadius:'8px',zIndex:9999});
+      setTimeout(()=>x.style.opacity='0',1500);setTimeout(()=>x.remove(),2200);
+    }
+  </script>
+
+  <!--
+    Instructions to publish on GitHub Pages (quick):
+    1. Create a new repository on GitHub (e.g., "frenzzy-world").
+    2. Add this file as index.html in the repository root, commit and push.
+    3. Go to Settings -> Pages (or "Pages" in the repo), choose branch: main (or gh-pages) and folder: / (root), then Save.
+    4. GitHub will publish at: https://<your-github-username>.github.io/<repo-name>/ (or your username.github.io if repo named username.github.io)
+
+    That's it — single-file site ready for GitHub Pages.
+  -->
 </body>
 </html>
-
