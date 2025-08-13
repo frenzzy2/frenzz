@@ -1,438 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Frenzzy's World — Home</title>
-  <meta name="description" content="Frenzzy's World — personal page. Join the Discord: frenzzy12__10019 | Server: discord.gg/Ty97MmU8" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg1: #0f1724; /* deep navy */
-      --glass: rgba(255, 255, 255, 0.06);
-      --accent: #5865F2; /* Discord blue */
-      --accent-2: #9b7aff;
-      --text-light: #e6eef8;
-      --text-muted: #cfe0ffb8;
-      --pill-bg: rgba(255, 255, 255, 0.03);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frenzzy's Special Page</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ffe0f0, #ffd1dc);
+        color: #5a0035;
+        text-align: center;
+        padding: 30px;
+        animation: fadeIn 1s ease-in-out;
     }
-    * {
-      box-sizing: border-box;
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: 'Poppins', system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg1);
-      color: var(--text-light);
-      overflow-x: hidden;
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 5px rgba(255, 0, 100, 0.3);
     }
-
-    /* Animated gradient background */
-    .bg-wrap {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      overflow: hidden;
-      background: linear-gradient(120deg, var(--bg1), #071021 30%);
-      animation: bgAnimate 15s ease infinite;
+    .heart {
+        font-size: 2rem;
+        color: red;
+        animation: pulse 1.5s infinite;
     }
-    .gradient {
-      position: absolute;
-      filter: blur(90px);
-      opacity: 0.9;
-      mix-blend-mode: screen;
-      width: 70vmax;
-      height: 70vmax;
-      border-radius: 50%;
-      animation: floaty 12s ease-in-out infinite;
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
     }
-    .g1 {
-      background: radial-gradient(circle at 30% 30%, rgba(88, 101, 242, 0.9), transparent 30%);
-      left: -15%;
-      top: -20%;
+    .card {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(255, 0, 100, 0.3);
+        max-width: 500px;
+        margin: auto;
+        font-size: 1.1rem;
     }
-    .g2 {
-      background: radial-gradient(circle at 60% 70%, rgba(155, 122, 255, 0.85), transparent 30%);
-      right: -20%;
-      bottom: -15%;
-      animation-duration: 18s;
+    .love-text {
+        font-size: 1.8rem;
+        color: #e60073;
+        margin-top: 15px;
+        font-weight: bold;
     }
-    @keyframes bgAnimate {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-    @keyframes floaty {
-      0% {
-        transform: translate(-20%, -10%) scale(1);
-      }
-      50% {
-        transform: translate(-10%, -5%) scale(1.1);
-      }
-      100% {
-        transform: translate(-20%, -10%) scale(1);
-      }
-    }
-
-    /* subtle star dots */
-    .stars {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-      background-size: 8px 8px;
-      opacity: 0.08;
-    }
-
-    /* floating blobs */
-    .blob {
-      position: absolute;
-      border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
-      filter: blur(24px);
-      opacity: 0.7;
-      mix-blend-mode: screen;
-      animation: blobAnim 10s ease-in-out infinite;
-    }
-    .b1 {
-      width: 260px;
-      height: 260px;
-      left: 8%;
-      bottom: 8%;
-      background: linear-gradient(135deg, #6ee7b7, #60a5fa);
-      animation-delay: 0s;
-    }
-    .b2 {
-      width: 200px;
-      height: 200px;
-      right: 8%;
-      top: 8%;
-      background: linear-gradient(135deg, #fbcfe8, #a78bfa);
-      animation-delay: 3s;
-    }
-    @keyframes blobAnim {
-      0%,
-      100% {
-        transform: scale(1) rotate(0deg);
-      }
-      50% {
-        transform: scale(1.1) rotate(6deg);
-      }
-    }
-
-    /* main container */
-    main.wrap {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* card */
-    section.card {
-      width: min(960px, 96%);
-      background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.03),
-        rgba(255, 255, 255, 0.02)
-      );
-      border-radius: 20px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 8px 32px rgba(2, 6, 23, 0.8);
-      padding: 2.5rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 350px;
-      gap: 2rem;
-      align-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: transform 0.25s ease;
-    }
-    section.card:hover {
-      transform: translateY(-5px);
-    }
-
-    /* left content */
-    .left h1 {
-      margin: 0;
-      font-size: 2.6rem;
-      letter-spacing: -0.7px;
-      font-weight: 700;
-    }
-    .left p.lead {
-      margin-top: 0.6rem;
-      color: var(--text-muted);
-      font-weight: 400;
-      font-size: 1.15rem;
-      line-height: 1.5;
-    }
-    .info-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 1.4rem;
-    }
-    .pill {
-      padding: 10px 16px;
-      border-radius: 9999px;
-      background: var(--pill-bg);
-      font-weight: 600;
-      color: var(--text-light);
-      font-size: 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      user-select: none;
-    }
-
-    /* footer tip */
-    .footer {
-      margin-top: 1.8rem;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    /* right sidebar */
-    aside.right {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-    .avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #15202b, #0b1220);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 4rem;
-      color: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      user-select: none;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-    }
-
-    /* discord box */
-    .discord-box {
-      background: linear-gradient(
-        180deg,
-        rgba(88, 101, 242, 0.12),
-        rgba(155, 122, 255, 0.06)
-      );
-      padding: 18px 22px;
-      border-radius: 14px;
-      border: 1px solid rgba(88, 101, 242, 0.18);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 100%;
-      max-width: 350px;
-      user-select: none;
-    }
-    .discord-box > div:first-child {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .discord-box .discord-username {
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: var(--text-light);
-      user-select: text;
-    }
-    .discord-box .discord-username .tag {
-      opacity: 0.9;
-    }
-    .discord-box .discord-action {
-      display: flex;
-      gap: 14px;
-      margin-top: 6px;
-    }
-    .btn {
-      padding: 12px 18px;
-      border-radius: 14px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: background 0.25s ease;
-      user-select: none;
-      text-decoration: none;
-      color: white;
-    }
-    .btn-join {
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      box-shadow: 0 6px 18px rgba(88, 101, 242, 0.3);
-    }
-    .btn-join:hover {
-      background: linear-gradient(90deg, #4752c4, #7e69ff);
-      box-shadow: 0 8px 22px rgba(88, 101, 242, 0.6);
-    }
-    .btn-profile {
-      background: transparent;
-      border: 1.5px solid rgba(255, 255, 255, 0.12);
-      color: var(--text-light);
-    }
-    .btn-profile:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.25);
-    }
-
-    /* small note below discord */
-    .small-note {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      text-align: center;
-    }
-
-    /* responsive */
-    @media (max-width: 920px) {
-      section.card {
-        grid-template-columns: 1fr;
-        padding: 2rem 1.8rem;
-      }
-      aside.right {
-        max-width: 100%;
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .discord-box {
-        max-width: 280px;
-        width: 45%;
-      }
-      .avatar {
-        margin-bottom: 0;
-      }
-    }
-  </style>
+</style>
 </head>
 <body>
-  <div class="bg-wrap" aria-hidden="true">
-    <div class="gradient g1"></div>
-    <div class="gradient g2"></div>
-  </div>
-  <div class="stars" aria-hidden="true"></div>
-  <div class="blob b1" aria-hidden="true"></div>
-  <div class="blob b2" aria-hidden="true"></div>
 
-  <main class="wrap">
-    <section class="card" role="region" aria-labelledby="title">
-      <div class="left">
-        <h1 id="title">Frenzzy's World</h1>
-        <p class="lead">
-          Hey — I’m <strong>Frenzzy</strong>. I’m good at studies with a streak of <strong>11 consecutive times</strong> being the class topper.
-          My friend <strong>Emily</strong> is 18, from the <strong>Philippines</strong>, and she’s amazing at piano and other skills.
-        </p>
-        <div class="info-list" role="list">
-          <div class="pill" role="listitem">Age: 16</div>
-          <div class="pill" role="listitem">Class: 9</div>
-          <div class="pill" role="listitem">Academic Streak: 11× Topper</div>
-          <div class="pill" role="listitem">Friend: Emily (18, Philippines, Pianist)</div>
-        </div>
-        <div class="footer">
-          Tip: Click the Discord button to join the server and add me: <strong>frenzzy12__10019</strong>
-        </div>
-      </div>
+<h1>Frenzzy ❤️</h1>
 
-      <aside class="right" aria-label="Profile & Discord">
-        <div class="avatar" aria-hidden="true" title="Avatar">Fz</div>
+<div class="card">
+    <p>She likes fish 🐟, vegetables 🥦, and pumpkin 🎃.</p>
+    <p>She’s cute 💖 and I like her a lot.</p>
+    <p>I wish I could meet her someday ✨.</p>
+    <div class="love-text">I love her ❤️</div>
+</div>
 
-        <div class="discord-box" role="group" aria-label="Discord">
-          <div>
-            <div>
-              <div style="font-size:0.85rem;color:#dbe9ff;">Discord</div>
-              <div class="discord-username" title="Discord username">
-                <span class="tag">frenzzy12__10019</span>
-              </div>
-            </div>
-            <div style="font-size:0.75rem;color:#cfe0ff80" aria-label="Online status">Online?</div>
-          </div>
-          <div class="discord-action">
-            <a
-              class="btn btn-join"
-              href="https://discord.gg/Ty97MmU8"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Join Frenzzy's Discord Server"
-              >Join Server</a
-            >
-            <button class="btn btn-profile" onclick="copyTag()" aria-label="Copy Discord username to clipboard">
-              Copy Tag
-            </button>
-          </div>
-          <div style="font-size:0.85rem;color:#cfe0ffb8">
-            Server invite: <code>discord.gg/Ty97MmU8</code>
-          </div>
-        </div>
-        <div class="small-note">Made for GitHub Pages — single file. Click join to open the invite in a new tab.</div>
-      </aside>
-    </section>
-  </main>
+<div class="heart">💖💖💖</div>
 
-  <script>
-    // Copy discord tag to clipboard
-    function copyTag() {
-      const tag = 'frenzzy12__10019';
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(tag).then(() => {
-          showToast('Copied: ' + tag);
-        });
-      } else {
-        const el = document.createElement('textarea');
-        el.value = tag;
-        document.body.appendChild(el);
-        el.select();
-        try {
-          document.execCommand('copy');
-          showToast('Copied: ' + tag);
-        } catch {
-          alert('Copy failed: ' + tag);
-        }
-        el.remove();
-      }
-    }
-
-    // Small toast notification
-    function showToast(msg) {
-      const toast = document.createElement('div');
-      toast.textContent = msg;
-      Object.assign(toast.style, {
-        position: 'fixed',
-        left: '50%',
-        bottom: '30px',
-        transform: 'translateX(-50%)',
-        background: 'rgba(0,0,0,0.6)',
-        color: '#fff',
-        padding: '10px 16px',
-        borderRadius: '8px',
-        zIndex: '9999',
-        opacity: '1',
-        transition: 'opacity 0.5s ease',
-        userSelect: 'none',
-      });
-      document.body.appendChild(toast);
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        setTimeout(() => toast.remove(), 500);
-      }, 1500);
-    }
-  </script>
 </body>
 </html>
