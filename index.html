@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lily</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      color: white;
+    }
+
+    .container {
+      position: relative;
+      text-align: center;
+    }
+
+    .part {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #e0f7ff;
+      text-shadow: 0 0 15px #00eaff, 0 0 30px #009dff;
+      opacity: 0;
+      position: absolute;
+      transition: all 2s ease;
+    }
+
+    #part1 {
+      bottom: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #part2 {
+      top: 50%;
+      right: -400px;
+      transform: translateY(-50%);
+    }
+
+    #final {
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: #ffffff;
+      opacity: 0;
+      text-shadow: 0 0 20px #00eaff, 0 0 40px #009dff;
+      transition: opacity 2s ease;
+    }
+
+    .lines {
+      margin-top: 20px;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+      font-size: 1.2rem;
+      color: #d9f7ff;
+      text-shadow: 0 0 10px rgba(0, 238, 255, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="part1" class="part">Hello my love</div>
+    <div id="part2" class="part">Lily ❤️</div>
+    <div id="final">Love you forever ❤️</div>
+    <div class="lines" id="line1">⚡ You’re the spark that lights up my world.</div>
+    <div class="lines" id="line2">🌌 With you, even silence feels magical.</div>
+    <div class="lines" id="line3">🔥 And Lily, no one’s got rizz like me 😉</div>
+  </div>
+
+  <script>
+    const part1 = document.getElementById("part1");
+    const part2 = document.getElementById("part2");
+    const final = document.getElementById("final");
+    const lines = [
+      document.getElementById("line1"),
+      document.getElementById("line2"),
+      document.getElementById("line3")
+    ];
+
+    // Slide in
+    setTimeout(() => {
+      part1.style.opacity = "1";
+      part1.style.bottom = "50%";
+      part1.style.transform = "translate(-50%, 50%)";
+    }, 500);
+
+    setTimeout(() => {
+      part2.style.opacity = "1";
+      part2.style.right = "50%";
+      part2.style.transform = "translate(50%, -50%)";
+    }, 2000);
+
+    // Break + Reveal
+    setTimeout(() => {
+      part1.style.opacity = "0";
+      part2.style.opacity = "0";
+      final.style.opacity = "1";
+    }, 4500);
+
+    // Rizz lines fade in
+    setTimeout(() => lines[0].style.opacity = "1", 6500);
+    setTimeout(() => lines[1].style.opacity = "1", 8000);
+    setTimeout(() => lines[2].style.opacity = "1", 9500);
+  </script>
+</body>
+</html>
+
 
