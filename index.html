@@ -1,114 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lily</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
-      font-family: 'Poppins', sans-serif;
-      overflow: hidden;
-      color: white;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motivational Page</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, html {
+        height: 100%;
+        overflow: hidden;
+        font-family: 'Arial', sans-serif;
     }
 
-    .container {
-      position: relative;
-      text-align: center;
+    /* Background image - high-quality nature scene */
+    .background {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+        z-index: -2;
+        filter: brightness(0.7);
+        animation: slowZoom 60s infinite alternate;
     }
 
-    .part {
-      font-size: 3rem;
-      font-weight: bold;
-      color: #e0f7ff;
-      text-shadow: 0 0 15px #00eaff, 0 0 30px #009dff;
-      opacity: 0;
-      position: absolute;
-      transition: all 2s ease;
+    @keyframes slowZoom {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.1); }
     }
 
-    #part1 {
-      bottom: -150px;
-      left: 50%;
-      transform: translateX(-50%);
+    /* Overlay for text visibility */
+    .overlay {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: -1;
     }
 
-    #part2 {
-      top: 50%;
-      right: -400px;
-      transform: translateY(-50%);
+    /* Scrolling text */
+    .scroll-text {
+        position: absolute;
+        bottom: -100%;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 3em;
+        font-weight: bold;
+        line-height: 1.5;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+        animation: scrollUp 12s linear infinite; /* faster scroll */
     }
 
-    #final {
-      font-size: 3.5rem;
-      font-weight: bold;
-      color: #ffffff;
-      opacity: 0;
-      text-shadow: 0 0 20px #00eaff, 0 0 40px #009dff;
-      transition: opacity 2s ease;
+    @keyframes scrollUp {
+        0% { bottom: -100%; }
+        100% { bottom: 110%; }
     }
-
-    .lines {
-      margin-top: 20px;
-      opacity: 0;
-      transition: opacity 1.5s ease;
-      font-size: 1.2rem;
-      color: #d9f7ff;
-      text-shadow: 0 0 10px rgba(0, 238, 255, 0.6);
-    }
-  </style>
+</style>
 </head>
 <body>
-  <div class="container">
-    <div id="part1" class="part">Hello my love</div>
-    <div id="part2" class="part">Lily ❤️</div>
-    <div id="final">Love you forever ❤️</div>
-    <div class="lines" id="line1">⚡ You’re the spark that lights up my world.</div>
-    <div class="lines" id="line2">🌌 With you, even silence feels magical.</div>
-    <div class="lines" id="line3">🔥 And Lily, no one’s got rizz like me 😉</div>
-  </div>
 
-  <script>
-    const part1 = document.getElementById("part1");
-    const part2 = document.getElementById("part2");
-    const final = document.getElementById("final");
-    const lines = [
-      document.getElementById("line1"),
-      document.getElementById("line2"),
-      document.getElementById("line3")
-    ];
+<div class="background"></div>
+<div class="overlay"></div>
 
-    // Slide in
-    setTimeout(() => {
-      part1.style.opacity = "1";
-      part1.style.bottom = "50%";
-      part1.style.transform = "translate(-50%, 50%)";
-    }, 500);
+<div class="scroll-text">
+    Dream big, work hard, <br>
+    and never give up!<br>
+    The world is yours to conquer.<br>
+    Keep pushing, keep growing.
+</div>
 
-    setTimeout(() => {
-      part2.style.opacity = "1";
-      part2.style.right = "50%";
-      part2.style.transform = "translate(50%, -50%)";
-    }, 2000);
+<!-- Optional calming background music -->
+<audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+</audio>
 
-    // Break + Reveal
-    setTimeout(() => {
-      part1.style.opacity = "0";
-      part2.style.opacity = "0";
-      final.style.opacity = "1";
-    }, 4500);
-
-    // Rizz lines fade in
-    setTimeout(() => lines[0].style.opacity = "1", 6500);
-    setTimeout(() => lines[1].style.opacity = "1", 8000);
-    setTimeout(() => lines[2].style.opacity = "1", 9500);
-  </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motivational Page</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    body, html {
+        height: 100%;
+        overflow: hidden;
+        font-family: 'Arial', sans-serif;
+    }
 
+    /* Background image - high-quality nature scene */
+    .background {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+        z-index: -2;
+        filter: brightness(0.7);
+        animation: slowZoom 60s infinite alternate;
+    }
+
+    @keyframes slowZoom {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.1); }
+    }
+
+    /* Overlay for text visibility */
+    .overlay {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: -1;
+    }
+
+    /* Scrolling text */
+    .scroll-text {
+        position: absolute;
+        bottom: -100%;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 3em;
+        font-weight: bold;
+        line-height: 1.5;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+        animation: scrollUp 12s linear infinite; /* faster scroll */
+    }
+
+    @keyframes scrollUp {
+        0% { bottom: -100%; }
+        100% { bottom: 110%; }
+    }
+</style>
+</head>
+<body>
+
+<div class="background"></div>
+<div class="overlay"></div>
+
+<div class="scroll-text">
+    Dream big, work hard, <br>
+    and never give up!<br>
+    The world is yours to conquer.<br>
+    Keep pushing, keep growing.
+</div>
+
+<!-- Optional calming background music -->
+<audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
